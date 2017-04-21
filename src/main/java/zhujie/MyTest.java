@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Test {
+public @interface MyTest {
     String value() default "default_test";
 }
