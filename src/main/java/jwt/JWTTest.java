@@ -17,9 +17,9 @@ public class JWTTest {
 //        }
 //        JWT.sign(new HashMap<String,String>(),10L);
 
-        String RSA = JWT.signRSA(new User("1","11","111"),60L*60L*1000L);
+        String RSA = JWT.signRSA("rsa_private_key.pem",new User("1","11","111"));
         System.out.println(RSA);
-        System.out.println(JWT.unSignRSA(RSA,User.class));
+        System.out.println(JWT.unSignRSA("rsa_public_key.pem",RSA,User.class));
 /*        System.out.println(s);
         User u= JWT.unsign(s,User.class);
         System.out.println(u);*/
