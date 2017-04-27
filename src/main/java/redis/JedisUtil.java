@@ -26,15 +26,21 @@ public class JedisUtil
 
     private static Map<String,JedisPool> maps = new HashMap<String,JedisPool>();
 
-    private static JedisPool getPool(String ip, int port,String pwd){
+    public static JedisPool getPool(String ip, int port,String pwd){
         String key = ip+":"+port;
         JedisPool pool = null;
         if(!maps.containsKey(key))
         {
             JedisPoolConfig config = new JedisPoolConfig();
             //config.setMaxActive(RedisConfig.MAX_ACTIVE);
-            config.setMaxIdle(RedisConfig.MAX_IDLE);
+
+            config.setMaxTotal(5);
+            config.setMaxIdle(3);
+            config.setMinIdle(1);
+            config.setMaxWaitMillis(1500);
             //config.setMaxWait(RedisConfig.MAX_WAIT);
+            config.setSoftMinEvictableIdleTimeMillis(1000);
+            config.setMinEvictableIdleTimeMillis(1000);
             config.setTestOnBorrow(true);
             config.setTestOnReturn(true);
 
@@ -66,6 +72,7 @@ public class JedisUtil
             {
                 //logger.error("get redis master1 failed!",e);
                 getPool(ip,port,pwd).returnBrokenResource(jedis);
+                count++;
             }
         }
         while(jedis == null && count<RedisConfig.RETRY_NUM);
