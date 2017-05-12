@@ -28,6 +28,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/designmode/zhuangshi" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/mutiDataSource" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/temp" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>

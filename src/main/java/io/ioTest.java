@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.io.*;
 
 import java.net.FileNameMap;
+import java.security.PublicKey;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Vector;
@@ -25,7 +26,7 @@ import java.util.Vector;
 public class ioTest {
 
     @Test
-    public void main(){
+    public void main() throws FileNotFoundException {
 //        BufferedInputStream
 //        BufferedReader
 //        Properties
@@ -33,6 +34,7 @@ public class ioTest {
 
 //        OutputStream
 //        Writer
+        new BufferedReader(new InputStreamReader(new FileInputStream("")));
     }
 
     @BeforeClass
@@ -49,6 +51,32 @@ public class ioTest {
         System.out.println("testBef");
     }
 
+
+    @Test
+    public void fileStream(){
+        byte[] buffer=new byte[512];   //一次取出的字节数大小,缓冲区大小
+        int numberRead=0;
+        FileInputStream input=null;
+        FileOutputStream out =null;
+        try {
+            input=new FileInputStream("D:/iotest/aa.png");
+            out=new FileOutputStream("D:/iotest/bb.jpg"); //如果文件不存在会自动创建
+
+            while ((numberRead=input.read(buffer))!=-1) {  //numberRead的目的在于防止最后一次读取的字节小于buffer长度，
+                out.write(buffer, 0, numberRead);       //否则会自动被填充0
+            }
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                input.close();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 
     /**
      * ObjectOutputStream.writeObject()的作用是把一个实例的对象以文件的形式保存到磁盘上，这个过程就叫Java对象的持久化。

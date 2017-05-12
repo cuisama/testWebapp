@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Gentle Introduction</title>
+    <script src="director.js"></script>
+    <script>
+
+        var author = function () { console.log("author"); },
+            books = function () { console.log("books"); },
+            viewBook = function(bookId) { console.log("viewBook: bookId is populated: " + bookId); };
+
+        var routes = {
+            '/author': author,
+            '/books': [books, function() { console.log("An inline route handler."); }],
+            '/books/view/:bookId': viewBook,
+
+            '/hello': {
+                '/world/?([^\/]*)\/([^\/]*)/?': function (a, b, c) {
+                    console.log(a, b,c);
+                }
+            },
+            '/hello2': {
+                '/(\\w+)': {
+                    on: function (who) { console.log(who) }
+                }
+            },
+
+            //路由事件
+            "/about/:id": {
+                before: function (id) {
+                    alert("direct to : /Home/About/" + id);
+                },
+                on: function (id) {
+                    window.location = "/Home/About/" + id;
+                },
+                after:function (id) {
+                    console.log("after:"+id);
+                },
+                once:function (id) {
+                    console.log("once:"+id);
+                }
+            }
+        };
+
+        var router = Router(routes);
+        router.init();
+
+//        router.dispatch();
+
+        router.on('/rabbit', function(){
+            console.log("路由的即时注册");
+        })
+
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="#/author">#/author</a></li>
+    <li><a href="#/books">#/books</a></li>
+    <li><a href="#/books/view/1">#/books/view/1</a></li>
+    <li><a href="#/hello/johny/appleseed">#/hello/world/johny/appleseed</a></li>
+    <li><a href="#/hello2/world">#/hello2/world</a></li>
+    <li><a href="#/about/:2">#/about/2</a></li>
+    <li><a href="#/rabbit">#/rabbit</a></li>
+</ul>
+</body>
+</html>
