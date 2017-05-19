@@ -31,6 +31,9 @@
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.11" />
           <element id="library" level="project" name="Maven: cglib:cglib-nodep:2.1_3" />
+          <element id="library" level="project" name="Maven: org.commonjava.test:compiler-test-fixture:0.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.0.12" />
         </element>
       </element>
       <element id="directory" name="META-INF">

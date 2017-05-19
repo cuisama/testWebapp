@@ -14,5 +14,6 @@ public class ATest {
         pp.sendHua();
         pp.sendQiaokl();
         pp.sendYifu();
+//        java.lang.reflect.Proxy
     }
 }
