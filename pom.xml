@@ -150,6 +150,17 @@
       <artifactId>compiler-test-fixture</artifactId>
       <version>0.1</version>
     </dependency>
+    <!-- 文件上传 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.3.2</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>testWebapp</finalName>
