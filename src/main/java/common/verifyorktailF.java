@@ -9,6 +9,9 @@ import java.util.Date;
 
 /**
  * Created by yxcui on 2017/4/24.
+ * 验证是不是年末 月末
+ * 天数+1 月份变化则是月末
+ * 天数+1 年份变化则是年末
  */
 public class verifyorktailF {
 

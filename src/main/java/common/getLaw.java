@@ -9,6 +9,8 @@ public class getLaw
 {
     @Test
     public void main(){
-
+        int x=12;
+        System.out.println((x>>3));
+        System.out.println(((((x>>2)+(x>>3))*2)%8));
     }
 }
