@@ -12,7 +12,7 @@ public class yifu extends Person {
     }
 
     @Override
-    public void show(){
+    public void daban(){
         if(componet!=null){
             componet.show();
         }

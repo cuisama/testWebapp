@@ -14,7 +14,7 @@ public class txu extends yifu{
     }
 
     @Override
-    public void show(){
+    public void daban(){
         super.show();
         System.out.println("T恤");
     }
